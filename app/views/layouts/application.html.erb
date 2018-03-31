@@ -2,26 +2,49 @@
 <html>
   <head>
     <title>Nameofapp</title>
-    <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aclonica">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
 
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", simple_pages_index_path %></li>
-        <li><%= link_to "Contact", simple_pages_index_path %></li>
-      </ul>
-    </nav>
+    <!--navbar starts here-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <nav class="container-fluid">
+        <nav class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <nav class="site-name navbar-brand">
+            <%= link_to "Asian Eyewear", root_path %>
+          </nav> <!-- end Asian Eyewear -->
+        </nav> <!-- end navbar-header -->
+        <nav class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "About", simple_pages_about_path %></li>
+            <li><%= link_to "Contact", simple_pages_contact_path %></li>
+          </ul>
+        </nav> <!-- end navbar-collapse -->
+      </nav> <!-- end nav container-fluid -->
+    </nav> <!-- end navbar -->
 
     <%= yield %>
 
-    <footer>
-      &copy; 2018 Asian Eyewear
+    <footer class="site-footer">
+      <h4>&copy; 2018 Asian Eyewear</h4>
     </footer>
 
   </body>
