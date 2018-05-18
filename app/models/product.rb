@@ -6,5 +6,6 @@ class Product < ApplicationRecord
       Product.where("name || color || description LIKE ?", "%#{search_term}%")
     else
       Product.where("name || color || description iLIKE ?", "%#{search_term}%")
+    end
   end
 end
