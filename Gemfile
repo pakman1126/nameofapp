@@ -13,6 +13,7 @@ gem 'rails', '~> 5.1.5'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails', '~> 4.0'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
