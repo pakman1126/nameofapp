@@ -66,3 +66,5 @@ gem 'cancancan', '~> 1.10'
 
 ## Gemfile for Rails 3+, Sinatra, or Merb
 gem 'will_paginate', '~> 3.1.1'
+
+gem 'rails-controller-testing'
