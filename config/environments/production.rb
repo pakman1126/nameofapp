@@ -101,5 +101,5 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'asianeyewear.herokuapp.com' }
 
   config.web_socket_server_url = "wss://asianeyewear.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ['https://asianeyewear.herokuapp.com', 'http://asianeyewear.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://asianeyewear.herokuapp.com', 'https://asianeyewear.herokuapp.com']
 end
