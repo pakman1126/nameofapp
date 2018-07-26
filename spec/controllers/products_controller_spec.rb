@@ -9,25 +9,9 @@ describe ProductsController, type: :controller do
     @admin = FactoryBot.create(:admin)
   end
 
-  context 'GET #index' do
-    it 'renders the index page' do
-      get :index
-      expect(response).to be_ok
-      expect(response).to render_template('index')
-    end
-  end
-
-  context 'GET #show' do
-    it 'renders the show page' do
-      get :show, params: { id: product.id }
-      expect(response).to be_ok
-      expect(response).to render_template('show')
-    end
-  end
-
   describe 'GET #new' do
     before do
-      sign_in @user
+      sign_in user
       context 'when a user is not admin' do
         it 'does not allow user to access new product' do
           get :new, params: { id: product.id }
@@ -37,7 +21,7 @@ describe ProductsController, type: :controller do
     end
 
     before do
-      sign_in @admin
+      sign_in admin
       context 'when admin is signed in' do
         it 'allows admin to access new product' do
           get :new, params: { id: product.id }
@@ -49,7 +33,7 @@ describe ProductsController, type: :controller do
 
   describe 'GET #edit' do
     before do
-      sign_in @user
+      sign_in user
       context 'when a user is not admin' do
         it 'does not allow user to edit product' do
           get :edit, params: { id: product.id }
@@ -59,7 +43,7 @@ describe ProductsController, type: :controller do
     end
 
     before do
-      sign_in @admin
+      sign_in admin
       context 'when admin is signed in' do
         it 'allows admin to edit product' do
           get :edit, params: { id: product.id }
@@ -71,7 +55,7 @@ describe ProductsController, type: :controller do
 
   describe 'POST #create' do
     before do
-      sign_in @user
+      sign_in user
       context 'when a user is not admin' do
         it 'does not allow user to create new product' do
           post :create, params: { id: product.id }
@@ -81,7 +65,7 @@ describe ProductsController, type: :controller do
     end
 
     before do
-      sign_in @admin
+      sign_in admin
       context 'when admin is signed in' do
         it 'allows admin to create new product' do
           post :create, params: { id: product.id }
@@ -89,13 +73,13 @@ describe ProductsController, type: :controller do
         end
 
         it 'will not create product without all required info' do
-          post :create, product_params: { name: "soap" }
+          post :create, product_params: { name: "glasses" }
           expect(response).to have_http_status(422)
         end
 
         it 'will create product with all required info' do
-          post :create, product_params: { name: "soap", descrition: "clean",
-            image_url: "soap-2333412_960_720.jpg", colour: "pink", price: 5.00 }
+          post :create, product_params: { name: "glasses", descrition: "tinted",
+            image_url: "henri-pham-356887", color: "black", price: 99 }
           expect(response).to be_ok
         end
       end
@@ -104,7 +88,7 @@ describe ProductsController, type: :controller do
 
   describe 'PUT #update' do
     before do
-      sign_in @user
+      sign_in user
       context 'when a user is not admin' do
         it 'does not allow user to update product' do
           put :update, params: { id: product.id }
@@ -114,7 +98,7 @@ describe ProductsController, type: :controller do
     end
 
     before do
-      sign_in @admin
+      sign_in admin
       context 'when admin is signed in' do
         it 'allows admin to update product' do
           put :update, params: { id: product.id }
@@ -126,7 +110,7 @@ describe ProductsController, type: :controller do
 
   describe 'DELETE #destroy' do
     before do
-      sign_in @user
+      sign_in user
       context 'when a user is not admin' do
         it 'does not allow user to destroy product' do
           delete :destroy, params: { id: product.id }
@@ -136,7 +120,7 @@ describe ProductsController, type: :controller do
     end
 
     before do
-      sign_in @admin
+      sign_in admin
       context 'when admin is signed in' do
         it 'allows admin to destroy product' do
           delete :destroy, params: { id: product.id }

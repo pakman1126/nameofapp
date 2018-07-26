@@ -49,9 +49,6 @@
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
 
-<%= @product.highest_rating_comment %>
-<%= @product.lowest_rating_comment %>
-
 <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
 <%= render 'new_comment' %>
 <%= render 'comments' %>
