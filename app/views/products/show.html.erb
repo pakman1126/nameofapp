@@ -46,6 +46,15 @@
   </div>
 </div>
 
+<h6>Views:</h6>
+  <span class="badge badge-pill badge_warning">
+    <%= @product.views %>
+  </span>
+<h6>Latest reviewer:&nbsp;&ndsp;</h6>
+  <span class="badge badge-pill badge_warning">
+    <%= @product.get_recent_reviewer %>
+  </span>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
 
