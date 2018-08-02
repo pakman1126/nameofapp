@@ -51,7 +51,7 @@
             <li><%= link_to "About", simple_pages_about_path %></li>
             <li><%= link_to "Contact", simple_pages_contact_path %></li>
           </ul>
-          <ul class="nav pull-right">
+          <ul class="nav pull-right" id="login-button">
             <li>
             <% if user_signed_in? %>
               <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
