@@ -50,11 +50,6 @@
   <span class="badge badge-pill badge_warning">
     <%= @product.views %>
   </span>
-<h6>Latest reviewer:</h6>
-  <span class="badge badge-pill badge_warning">
-    <%= @product.get_recent_reviewer %>
-  </span>
-
 <br>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
